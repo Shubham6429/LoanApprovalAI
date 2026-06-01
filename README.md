@@ -1,94 +1,51 @@
 # AI Loan Decision Platform
 
-Explainable & Fair AI-Powered Loan Decision Support Platform with transparent lending decisions.
-
-## Architecture
-
-- **Frontend**: Next.js 14 (TypeScript) + Tailwind CSS + shadcn/ui
-- **Backend**: FastAPI (Python) + XGBoost + SHAP + DiCE + Fairlearn
-- **Database**: Supabase PostgreSQL with Row Level Security
-- **Auth**: Supabase Auth (JWT-based)
-
-## Quick Start
-
-### Prerequisites
-
-- Python 3.12+
-- Node.js 18+
-- Supabase project (with migrations applied)
-
-### Backend Setup
-
-```bash
-cd backend
-python -m venv venv
-.\venv\Scripts\activate  # Windows
-# source venv/bin/activate  # Linux/Mac
-
-pip install -r requirements.txt
-cp .env.example .env  # Fill in Supabase credentials
-
-# Train ML models (first time only)
-python -m app.ml.train
-
-# Start server
-python -m uvicorn app.main:app --reload --port 8000
-```
-
-### Frontend Setup
-
-```bash
-cd frontend
-npm install
-cp .env.local.example .env.local  # Fill in Supabase credentials
-
-npm run dev
-```
-
-### Access
-
-- Frontend: http://localhost:3000
-- Backend API: http://localhost:8000
-- Swagger Docs: http://localhost:8000/docs
+An Explainable AI-powered loan assessment platform that helps applicants understand **why** a loan was approved or rejected and what they can do to improve their chances.
 
 ## Features
 
-### Applicant
-- Submit loan applications with instant credit risk assessment
-- View SHAP-based explanations of decisions
-- Receive counterfactual recommendations for rejected applications
-- What-If Simulator for exploring approval scenarios
-- Assessment history with full detail views
-- PDF report download
+* 🤖 AI-based loan approval prediction using XGBoost
+* 📊 SHAP explanations showing factors that influenced the decision
+* 💡 Personalized recommendations using DiCE counterfactual analysis
+* 🔄 What-If Simulator to test different financial scenarios
+* 📄 Downloadable PDF assessment reports
+* 🔐 Secure authentication with Supabase
+* 👥 Role-based access for Applicants and Admins
+* 📜 Application history and assessment tracking
 
-### Bank Officer
-- Review all submitted applications
-- View detailed predictions with SHAP explanations
-- Model performance analytics (XGBoost vs Random Forest)
+## Tech Stack
 
-### Admin
-- Fairness monitoring (Demographic Parity, Equalized Odds)
-- User management with role assignment
-- Audit logs for compliance
-- Model statistics
+**Frontend:** Next.js, React, TypeScript, Tailwind CSS
 
-## API Endpoints
+**Backend:** FastAPI, Python
 
-| Method | Path | Role | Description |
-|--------|------|------|-------------|
-| POST | /api/v1/applications | Applicant | Submit loan application |
-| GET | /api/v1/applications | Applicant | List own applications |
-| GET | /api/v1/applications/{id} | Any | Get application detail |
-| GET | /api/v1/applications/review | Officer | List all applications |
-| POST | /api/v1/predictions/simulate | Applicant | What-If simulation |
-| GET | /api/v1/reports/{id}/pdf | Applicant | Download PDF report |
-| GET | /api/v1/admin/audit-logs | Admin | View audit logs |
-| GET | /api/v1/admin/model-stats | Officer/Admin | Model metrics |
-| GET | /api/v1/health | Public | Health check |
+**Database & Auth:** Supabase, PostgreSQL
 
+**AI & Explainability:** XGBoost, SHAP, DiCE, Scikit-Learn
 
-```
+## How It Works
 
-## License
+1. Applicant submits financial details.
+2. The AI model evaluates loan eligibility.
+3. SHAP explains which factors helped or hurt approval.
+4. DiCE generates actionable recommendations for improvement.
+5. Users can explore alternative scenarios with the What-If Simulator.
+6. Results can be downloaded as a PDF report.
 
-MIT
+## Project Highlights
+
+* Transparent and explainable lending decisions
+* Human-friendly AI recommendations
+* Interactive loan readiness assessment
+* End-to-end full-stack AI application
+
+## Future Enhancements
+
+* AI-powered financial assistant
+* Approval roadmap generator
+* Email notifications
+* Advanced analytics dashboard
+
+---
+
+Built by **Shubham Chauhan** as an Explainable AI and Full-Stack Machine Learning project.
