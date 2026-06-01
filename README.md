@@ -86,29 +86,7 @@ npm run dev
 | GET | /api/v1/admin/model-stats | Officer/Admin | Model metrics |
 | GET | /api/v1/health | Public | Health check |
 
-## Environment Variables
 
-### Backend (.env)
-```
-SUPABASE_URL=https://your-project.supabase.co
-SUPABASE_KEY=your-anon-key
-SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
-SUPABASE_JWT_SECRET=your-jwt-secret
-FRONTEND_URL=http://localhost:3000
-ENVIRONMENT=development
-```
-
-### Frontend (.env.local)
-```
-NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
-NEXT_PUBLIC_API_URL=http://localhost:8000
-```
-
-## Deployment
-
-```bash
-docker-compose up --build
 ```
 
 ## License
